@@ -1,0 +1,49 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+
+    <div class="form-froup row" style="width: 60%;">
+
+        <label class="col-sm-2 col-form-label">Type</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="Type">
+                <option *ngFor="let type of postTypes" [ngValue]="type">{{type}}</option>
+            </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Platform</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="Platform">
+                <option *ngFor="let platform of platforms" [ngValue]="platform">{{platform}}</option>
+            </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="Position">
+                <option *ngFor="let position of positions" [ngValue]="position">{{position}}</option>
+            </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Player Rating</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="PlayerRating">
+                <option *ngFor="let rating of playerRatings" [ngValue]="rating">{{rating}}</option>
+            </select>
+        </div>
+
+        <div class="col-sm-10">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="Description" placeholder="Description">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button (click)="addPost()" *ngIf="post.ID==0" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="editPost(dataItem)" *ngIf="post.ID!=0" class="btn btn-primary">
+    Update
+</button>

@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="loginWrapper" [style.background-color]="loginDisplay ? 'deepskyblue':'limegreen'">
+        <div *ngIf="loginDisplay == false" class="loginWrapper">
+            <div class="titleText">
+                Register
+            </div>
+            <div class="formWrapper">
+                <div *ngIf="loginDisplay == false" class="createAccount">
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                        <div>
+                            <label class="inputForm">Email</label>
+                            <input style="float: right;" type="email" formControlName="email" placeholder="Email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        </div>
+                        <div>
+                            <label class="inputForm">Username</label>
+                            <input style="float: right;" type=" text" formControlName="username" placeholder="Username"
+                                minlength="8" required>
+                        </div>
+                        <div>
+                            <label class="inputForm">Password</label>
+                            <input style="float: right;" type="password" formControlName="password"
+                                placeholder="Password" minlength="8" required>
+                        </div>
+                        <button class="createAccountButton" [disabled]="!registerForm.valid">Register</button>
+                        <a (click)="loginDisplay = true">Have an account already?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loginDisplay == true" class="loginWrapper">
+            <div class="titleText">
+                Login
+            </div>
+            <div class="formWrapper">
+                <div *ngIf="loginDisplay == true" class="createAccount">
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+                        <div>
+                            <label class="inputForm">Username</label>
+                            <input style="float: right;" type=" text" formControlName="username" placeholder="Username"
+                                minlength="8" required>
+                        </div>
+                        <div>
+                            <label class="inputForm">Password</label>
+                            <input style="float: right;" type="password" formControlName="password"
+                                placeholder="Password" minlength="8" required>
+                        </div>
+                        <button class="createAccountButton" [disabled]="!loginForm.valid">Login</button>
+                        <a (click)="loginDisplay = false">First time? Register here!</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
